@@ -57,7 +57,7 @@ stages{
     stage('Docker build&push'){
         steps{
             script{
-                  withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
+                  withDockerRegistry(credentialsId: 'docker-cred') {
                sh "docker build -t spc:latest -f Dockerfile ."
                sh "docker tag spc:latest vpk1999/spc:latest"
                sh "docker push vpk1999/spc:latest"

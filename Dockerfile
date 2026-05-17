@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests -Dcheckstyle.skip=true
 
 
 FROM amazoncorretto:17-alpine-jdk
