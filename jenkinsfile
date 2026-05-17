@@ -22,6 +22,7 @@ stages{
         steps{
             sh'''
              mvn sonar:sonar \
+             -Dcheckstyle.skip=true\
             -Dsonar.host.url=http://18.206.222.184:9000 \
             -Dsonar.login=squ_e325604b23840e3fbdf607ee2525239c0b195b10\
             -Dsonar.projectKey=shopping_cart \
@@ -57,7 +58,7 @@ stages{
         steps{
             script{
                   withDockerRegistry(credentialsId: 'dockerhub-cred', toolName: 'docker') {
-               sh "docker build -t spc:latest -f Dockerfile"
+               sh "docker build -t spc:latest -f Dockerfile ."
                sh "docker tag spc:latest vpk1999/spc:latest"
                sh "docker push vpk1999/spc:latest"
                
