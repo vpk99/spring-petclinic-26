@@ -66,5 +66,11 @@ stages{
             }
         }
     }
+
+    stage('Trigger CD pipline'){
+        steps{
+            build job: 'CD_PIPELINE'
+        }
+    }
 }
 }
