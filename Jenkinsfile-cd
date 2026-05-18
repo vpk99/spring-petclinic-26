@@ -10,7 +10,7 @@ pipeline{
                 script{
                    withDockerRegistry(credentialsId: 'docker-cred') {
                    
-                   sh "docker run -d --name spc -p 8087:8087 vpk1999/spc:latest"
+                   sh "docker run -d --name spc -p 8087:8080 vpk1999/spc:latest"
                 }
             }
         }
